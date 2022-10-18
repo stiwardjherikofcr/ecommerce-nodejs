@@ -1,0 +1,29 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  min-height: 42vh;
+}
+
+.list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+
+.list-unstyled li a {
+  color: #fff !important;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.bg-1 {
+  background-color: #ffc107;
+}
+
+.bg-2 {
+  background-color: #28a745;
+}
+
+.bg-3 {
+  background-color: #dc3545;
+}

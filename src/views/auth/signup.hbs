@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head title="Sign Up"}}
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/signin.css">
+</head>
+
+<body>
+    <main class="mt-5">
+        <div class="row">
+            <div class="col-4 mx-auto">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <div class="card-title font-weight-bold">Sign Up</div>
+                        <div class="card-category">Create your account to get full access</div>
+                    </div>
+                    <form action="/auth/signup" method="post" enctype="multipart/form-data">
+                        <div class="card-body">
+                            <div class="form-group text-center">
+                                <img src="/img/User_Circle.png" class="profile" height="100" alt="Image preview...">
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input_fullname">Full Name</label>
+                                        <input class="form-control" type="text" name="fullname" id="input_fullname"
+                                            placeholder="fullName" required autofocus>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input_email">Email Address</label>
+                                        <input class="form-control" type="text" name="email" id="input_email"
+                                            placeholder="Email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input_phone">Phone</label>
+                                        <input class="form-control" type="text" name="phone" id="input_phone"
+                                            placeholder="Phone" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input_address">Address</label>
+                                        <input class="form-control" type="text" name="address" id="input_address"
+                                            placeholder="Address" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input_image">Image</label>
+                                        <input class="form-control-file" type="file" name="image" id="input_image"
+                                            accept="image/*" onchange="previewImage(event)" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input_username">Username</label>
+                                        <input class="form-control" type="text" name="username" id="input_username"
+                                            placeholder="Username" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label for="input_password">Password</label>
+                                        <input class="form-control" type="password" name="password" id="input_password"
+                                            placeholder="Password" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mt-2">
+                                <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="card-footer text-center">
+                        <p> Already have an account? <a class="font-weight-bold" href="/auth/signin"> Login</a> here</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {{> scripts}}
+    <!-- Custom JS -->
+    <script src="../../js/signup.js"></script>
+
+</body>
+
+</html>

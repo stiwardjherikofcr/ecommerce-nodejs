@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head title="Orders" }}
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/index.css">
+</head>
+
+<body>
+    {{> navbar}}
+    <main>
+        <div class="container">
+            <div class="row my-5">
+                <div class="col-md-12">
+                    <h1 class="text-center">Orders</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        {{#if data}}
+                        <table class="table table-borderless table-hover text-center">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Tiempo Transcurrido</th>
+                                    <th scope="col">Subtotal</th>
+                                    <th scope="col">IVA</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each data}}
+                                <tr>
+                                    <th scope="row">{{id}}</th>
+                                    <td>{{date}}</td>
+                                    <td>{{timeago time}}</td>
+                                    <td>$ {{subtotal}}</td>
+                                    <td>{{iva}}%</td>
+                                    <td>$ {{total}}</td>
+                                    <td>
+                                        <h5><span class="badge bg-{{id_status}} p-2">{{status}}</span></h5>
+                                    </td>
+                                    <td>
+                                        <a href="/orders/{{id}}" class="btn btn-primary">Ver</a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {{> footer}}
+    {{> scripts}}
+</body>
+
+</html>

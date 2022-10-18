@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{> head title="Products"}}
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/producto.css" />
+</head>
+
+<body onload="getSizeCart()">
+
+    {{> navbar}}
+
+    <br>
+
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <a href="products_list?categoryId=2"><button class="button" style="font-size: 15px;" id="bt">
+                        <img src="../img/img carnes y pescao.png" width="30px" height="30px"> Carnes</button>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="products_list?categoryId=1"><button class="button" style="font-size: 15px;" id="bt">
+                        <img src="../img/harina.png" width="30px" height="30px"> Viveres</button>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="products_list?categoryId=3"><button class="button" style="font-size: 15px;" id="bt">
+                        <img src="../img/img enlatados.png" width="30px" height="30px"> Enlatados</button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <a href="products_list?categoryId=4"><button class="button" style="font-size: 15px;" id="bt">
+                        <img style="margin-right: 10px" src="../img/img frutas y verduras.png" width="30px"
+                            height="30px">Frutas y Verduras</button>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="products_list?categoryId=5"><button class="button" style="font-size: 15px;" id="bt">
+                        <img src="../img/img bebida.png" width="30px" height="30px">Bebidas</button>
+                </a>
+            </div>
+            <div class="col-md-4 mb-3">
+                <a href="products_list?categoryId=6"><button class="button" style="font-size: 15px;" id="bt"><img
+                            src="../img/img aseo.png" width="30px" height="30px"> Aseo y Limpieza</button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mb-3 text-center">
+                <a href="products_list" class="btn btn-outline-primary btn-lg">Eliminar Filtrado</a>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="text-center" style="margin-left: 100px; margin-right: 100px;">
+        <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+            {{#if data}}
+            {{#each data}}
+            <div class="col mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h4 class="card-title my-0">{{name}}</h4>
+                    </div>
+                    <div class="card-body">
+                        <img src="data:image/jpeg;base64,{{image}}" class="card-img-top" alt="{{name}}">
+                        <p class="card-text mt-3">{{name}}</p>
+                        <p class="card-text font-weight-bold mt-inline">$ {{price}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <button type="button" class="btn btn-secondary" onclick="addToCart({{id}})">
+                            <span style="color:#fff; font-size: 20px;"><i class="fa-solid fa-cart-shopping"></i></span>
+                            <span class="ml-2">Agregar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            {{/if}}
+        </div>
+    </div>
+    {{> footer}}
+    {{> scripts}}
+</body>
+
+</html>

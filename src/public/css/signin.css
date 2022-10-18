@@ -1,0 +1,15 @@
+.card {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  z-index: 9999;
+}
+
+.profile {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}

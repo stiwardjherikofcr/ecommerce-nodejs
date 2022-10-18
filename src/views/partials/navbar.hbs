@@ -1,0 +1,55 @@
+<nav class="navbar navbar-light navbar-expand-lg sticky-top" style="background-color: #042577;">
+
+    <a class="navbar-brand" href="../">
+        <img src="../img/logo.png" class="d-block" alt='...' height="110px" width="120px">
+    </a>
+
+    <button class="navbar-toggler navbar-toggler-light bg-white" type="button" data-toggle="collapse"
+        data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="../">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/products/products_list">Products</a>
+            </li>
+            {{#if user}}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                    <img src="../img/uploads/{{user.image}}" alt="mdo" width="32" height="32" class="rounded-circle">
+                    <span class="text-white">
+                        {{user.fullname}}
+                    </span>
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/account/profile">Profile</a>
+                    <a class="dropdown-item" href="/orders">Orders</a>
+                    <a class="dropdown-item" href="/orders/admin">Admin Orders</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/auth/logout">Sign out</a>
+                </div>
+            </li>
+            {{else}}
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/auth/signin">Sign in</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/auth/signup">Sign up</a>
+            </li>
+            {{/if}}
+            <li class="nav-item">
+                <a class="nav-link" href="/products/cart">
+                    <span style="color:#fff; font-size: 20px;">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="badge badge-light" id="size_cart">0</span>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
