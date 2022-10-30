@@ -26,32 +26,22 @@ orderController.getOrders = async (req, res) => {
 
 orderController.getOrder = async (req, res) => {
     const id_order = req.params.id;
-    await pool.query('SELECT * FROM `order_producto` WHERE id_order = ?', [id_order], (err, rows) => {
+    await pool.query('SELECT op.*, p.name, p.image FROM `order_producto` op INNER JOIN `producto` p ON op.id_product = p.id_product WHERE id_order = ?', [id_order], (err, rows) => {
         if (err) {
             res.json(err);
         } else {
-            orders = rows.map(order => {
+            orders = rows.map(order_product => {
                 return {
-                    id: order.id_order_product,
-                    id_product: order.id_product,
-                    name: '',
-                    image: '',
-                    quantity: order.quantity,
-                    price: order.price,
-                    subtotal: order.subtotal,
-                    iva: order.iva,
-                    total: order.total,
+                    id: order_product.id_order_product,
+                    id_product: order_product.id_product,
+                    name: order_product.name,
+                    image: Buffer.from(order_product.image).toString('base64'),
+                    quantity: order_product.quantity,
+                    price: order_product.price,
+                    subtotal: order_product.subtotal,
+                    iva: order_product.iva,
+                    total: order_product.total,
                 }
-            })
-            orders.forEach(order => {
-                pool.query('SELECT * FROM `producto` WHERE id_product = ?', [order.id_product], (err, rows) => {
-                    if (err) {
-                        res.json(err);
-                    } else {
-                        order.name = rows[0].name;
-                        order.image = Buffer.from(rows[0].image).toString('base64');
-                    }
-                })
             })
             res.render('orders/details', { data: orders })
         }
